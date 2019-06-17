@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+            <div class="row p-2">
+
+
+            	<div class="col-sm p-2">
+                    {% for obj in context %}
+                    <img src="{{ obj.about_as.url}}" class=" port-img " alt="Responsive image">
+                    {% endfor %}
+                </div>
+
+
+            </div>
+            <div class=" p-5">
+            	<h1 class="us"> من نحن ? </h1>
+            </div>
+
+            <div>
+                <h6 class="pr-5 pl-5 t-aj"> موقع تويت ديزاد Tweet-dzموقع متخصص في أخبار الهواتف النقالة و التكنولوجيا عموما
+                    . يعتبر مرجع لما يحتويه من مقالات  كما يمكنك الحصول على خدمات متعددة كمواصفات الهواتف النقالة و الكمبيوترات النحمولة و عروض الهاتف المحمول في الجزائر
+                    . تم انشاء الموقع من طرف شباب لديهم هوس بكل جديد من تكنولوجيا و كل مايخص الهاتف
+                    . الموقع متجدد و يعمل على مدار اليوم . </h6>
+                <div class="row p-2">
+                   <dir class="col-sm p-2">
+                        <div class="text-right p-3">
+                            <h5 class="ct"><b> يمكنك مراسلة الموقع على  :</b></h5><br />
+                            <a class="foot-b mr-2 p-2" href="https://www.facebook.com/MiMobileDZ/" target="_blank" ><i class="fab fa-facebook-square" ></i>فايسبوك </a><br />
+                            <a class="foot-b mr-3 p-2" href="https://twitter.com/TweetAlgerie" target="_blank"><i class="fab fa-twitter-square"></i> تويتر </a><br />
+                            <a class="foot-a mr-4 p-2">الهاتف :  77 57 44 031</a><br />
+                            <a class="foot-a mr-5 p-2">الايميل  :<i>dzromel@gmail.com</i></a>
+                         </div>
+                    </dir>
+             </div>
+            </div>
+
+{% endblock %}
+

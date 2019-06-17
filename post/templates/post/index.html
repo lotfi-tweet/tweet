@@ -1,0 +1,363 @@
+{% extends 'base.html' %}
+ {% block content %}
+            <!--last topics + pup-->
+            <div class="row">
+            	<div class="col-sm-9">
+            		<div class="row margin0">
+                      {% for post in mobile_list|slice:"0:2"  %}
+            			<div class="col-sm dzpost2">
+            				<a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                </a>
+            				<div class="post_in">
+                              <a href="{% url 'detail' post.pk %}" class="a-w">
+            					<h5>
+                                    {{ post.title|truncatewords:20 }}
+                                </h5>
+                              </a>
+            				</div>
+            			</div>
+                       {% endfor %}
+
+            		</div>
+            		<div class="row">
+                        {% for post in offer_list|slice:"0:1" %}
+
+            			<div class="col-sm-4">
+                            <div class="col-sm dzpost2">
+            				  <a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                </a>
+            				  <div class="post_in">
+                                <a href="{% url 'detail' post.pk %}" class="a-w">
+            					  <p>
+                                    {{ post.title|truncatewords:20 }}
+                                </p>
+                                </a>
+            				  </div>
+                            </div>
+            	    	</div>
+
+                        {% endfor %}
+
+                        {% for post in mix_list|slice:"0:1" %}
+            			<div class="col-sm-4">
+                            <div class="col-sm dzpost2">
+                               <a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                </a>
+            				  <div class="post_in">
+                                <a href="{% url 'detail' post.pk %}" class="a-w">
+            					  <p>
+                                    {{ post.title|truncatewords:20 }}
+                                </p>
+                                </a>
+            				  </div>
+                            </div>
+            	    	</div>
+                        {% endfor %}
+
+                        {% for post in computer_list|slice:"0:1" %}
+            			<div class="col-sm-4">
+                            <div class="col-sm dzpost2">
+            				  <a href="{% url 'detail' post.pk %}" >
+            				    <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                              </a>
+            				  <div class="post_in">
+                                <a href="{% url 'detail' post.pk %}" class="a-w">
+            					  <p>
+                                    {{ post.title|truncatewords:20 }}
+                                </p>
+                                </a>
+            				  </div>
+                            </div>
+            	    	</div>
+                        {% endfor %}
+                    </div>
+
+            		</div>
+
+            	<div class="col-sm-3">
+
+            			{% for obj in ads_list %}
+                          <a href="#">
+                              <p>{{ obj.ads_2 }}</p>
+                          </a>
+                            {% endfor %}
+         		
+            	</div>
+            </div>
+
+            <!--mobile news-->
+            <div class="row big-title-line">
+            	<a href="{% url 'mobile_part' %}" class="a-b"><p class=" big-title">أخبار هواتف النقالة</p></a>
+            </div>
+            <div class="row">
+
+            	<div class="col-sm-6">
+                    {% for post in mobile_list|slice:"2:8" %}
+                  <div class="card mb-3" >
+                    <div class="row no-gutters">
+                      <div class="col-md-4 ">
+                        <a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid3" alt="Responsive image">
+                        </a>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body ">
+                            <a href="{% url 'detail' post.pk %}" class="a-b">
+                          <h5 class="card-title">{{ post.title }}</h5>
+
+                          <p class="card-text"><small class="text-muted"> تاريخ النشر:{{ post.pup_date|date:"SHORT_DATE_FORMAT" }} </small></p>
+                             </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <hr>
+                    {% endfor %}
+            	</div>
+                <!-- discount space -->
+              <div class="col-sm-3 p2">
+                <div class="row">
+                        <div class="col-sm-12">
+                            <a href="{% url 'discount_mob' %}">
+                                <button type="button" class="btn butt"> تخفيضات  </button>
+                            </a>
+                        </div>
+                      </div>
+                  {% for post in discount_list %}
+                <div class="card mb-3 border border-danger " >
+                    <img src="{{ post.imag_dics.url }}" class="img-disc pt-2" alt="sam"/>
+                    <div class="card-body">
+                      <h1 class="e-c">{{ post.mob_name }}</h1>
+                      <h5 class="e-c cl-red"><strike>{{ post.old_price }} دج</strike></h5>
+                      <h5 class="e-c cl-green">{{ post.new_price }} دج</h5>
+
+                    </div>
+                  </div>
+                  {% endfor %}
+
+              </div>
+              <div class="col-sm-3">
+              		<div class="row">
+                              <div class="col-sm-12">
+
+                                      <button type="button" class="btn butt"> بحث عن هاتف  </button>
+                              </div>
+                      </div>
+                      <div class="row">
+                              <div class="col-sm">
+                                <select class="custom-select" id="">
+                                  <option selected>اسم الشركة</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                              </div>
+                              <div class="col-sm">
+                                <select class="custom-select" >
+                                  <option selected> اسم الهاتف </option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                              </div>
+              	      </div>
+                      <div class="row">
+                        <div class="col-4"><img class="img-icon" src="static\img\samsung.jpg"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\huawei.jpg"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\condor.jpg"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\oppo.jpg"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\xiaomi.png"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\apple.png"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\lg.png"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\lenovo.png"></div>
+                        <div class="col-4"><img class="img-icon" src="static\img\azuz.png"></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12" >
+                          <button type="button" class="btn butt mt-3">ابحث  <i class="fas fa-search"></i></button>
+                        </div>
+                      </div>
+                   <!-- publicity -->
+                  <div>
+                  {% for obj in ads_list %}
+                          <a href="#">
+                              <p>{{ obj.ads_4 }}</p>
+                          </a>
+                            {% endfor %}
+                </div>
+              </div>
+
+
+             <hr/>
+            </div>
+            <!--offers news -->
+            <div class="row big-title-line">
+            	<a href="{% url 'offer_part' %}" class="a-b"><p class=" big-title">عروض و خدمات</p></a>
+            </div>
+            <div class="row">
+            	<div class="col-sm-9">
+            		<div class="row margin0">
+                        {% for post in offer_list|slice:"0:2" %}
+            			<div class="col-sm dzpost2">
+            				<a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                            </a>
+            				<div class="post_in">
+                              <a href="{% url 'detail' post.pk %} " class="a-w">
+            					<h5 class="card-title">{{ post.title|truncatewords:20 }}</h5>
+                              </a>
+            				</div>
+            			</div>
+                         {% endfor %}
+            		</div>
+            		<div class="row">
+            			{% for post in offer_list|slice:"2:4" %}
+            			<div class="col-sm dzpost2">
+            				<a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                            </a>
+            				<div class="post_in">
+                              <a href="{% url 'detail' post.pk %}" class="a-w">
+            					<h5 class="card-title">{{ post.title|truncatewords:20 }}</h5>
+                              </a>
+            				</div>
+            			</div>
+                         {% endfor %}
+            		</div>
+            	</div>
+            	<div class="col-sm-3">
+            		<div class="row">
+                            <div class="col-sm-12">
+
+                                      <button type="button" class="btn butt"> خدمات و عروض  </button>
+                              </div>   
+                    </div>
+                    <div class="row">
+                            <div class="col-sm">
+                              <select class="custom-select" >
+                                <option selected>المتعامل</option>
+                                <option value="1">Djezzy</option>
+                                <option value="2">Mobilis</option>
+                                <option value="3">Ooredoo</option>
+                                <option value="3">ALG TEL</option>
+                              </select>
+                            </div>
+                            <div class="col-sm">
+                              <select class="custom-select">
+                                <option selected> ااسم العرض</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><img class="img-icon2" src="static\img\ooredoo.png"></div>
+                      <div class="col-6"><img class="img-icon2" src="static\img\Mobilis.png"></div>
+                      <div class="col-6"><img class="img-icon2" src="static\img\djezzy.png"></div>
+                      <div class="col-6"><img class="img-icon2" src="static\img\algtel.png"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12" >
+                        <button type="button" class="btn butt mt-3">ابحث  <i class="fas fa-search"></i></button>
+                      </div>
+                    </div> 
+            	</div>
+            </div>
+
+            <!--technology news-->
+            <div class="row big-title-line">
+            	<a href="{% url 'computer_part' %}" class="a-b"><p class=" big-title">أخبار الكمبيوتر</p></a>
+            </div>
+            <div class="row">
+            	<div class="col-sm-9">
+            		<div class="row margin0">
+            			{% for post in computer_list|slice:"0:2" %}
+            			<div class="col-sm dzpost2">
+            				<a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                            </a>
+            				<div class="post_in">
+                              <a href="{% url 'detail' post.pk %}" class="a-w">
+            					  <h5 class="card-title">{{ post.title|truncatewords:20 }}</h5>
+                              </a>
+            				</div>
+            			</div>
+                         {% endfor %}
+            		</div>
+            		<div class="row">
+            			{% for post in computer_list|slice:"2:4" %}
+            			<div class="col-sm dzpost2">
+            				<a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                            </a>
+            				<div class="post_in">
+                              <a href="{% url 'detail' post.pk %}" class="a-w">
+            					<h5 class="card-title"> {{ post.title|truncatewords:20 }} </h5>
+                              </a>
+            				</div>
+            			</div>
+                         {% endfor %}
+            		</div>
+            	</div>
+            	<div class="col-sm-3">
+            		<img src="static\img\pup.jpg" class="img-fluid" alt="Responsive image">
+            	</div>
+            </div>
+
+             <!--all news-->
+            <div class="row big-title-line">
+            	<a href="{% url 'mix_part' %}" class="a-b"><p class=" big-title">أخبار متنوعة</p></a>
+            </div>
+            <div class="row">
+            	<div class="col-sm-9">
+                    {% for post in mix_list|slice:"0:5" %}
+                   <a href="{% url 'detail' post.pk %}" class="a-b">
+            		<div class="row no-gutters">
+
+                          <div class="col-md-4">
+                            <a href="{% url 'detail' post.pk %}" >
+            				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                            </a>
+                          </div>
+                          <div class="col-md-8 big-title-line">
+                            <div class="card-body ">
+                                <a href="{% url 'detail' post.pk %}" class="a-b">
+                                   <h4>{{post.title|truncatewords:25}}</h4>
+            					   <p>{{ post.text_1|truncatewords:30 }}</p>
+                                   <p class="card-text"><small class="text-muted">تاريخ النشر:04 مارس 2019</small></p>
+                                </a>
+                            </div>
+                          </div>
+
+                  </div>
+                   </a>
+
+                {% endfor %}
+            	</div>
+            	<div class="col-sm-3">               <!--https://www.facebook.com/MiMobileDZ/-->
+                <div class="row">
+                  <div class="footer ">
+                        <p class="big-title">اشترك في صفحتنا على الفايسبوك</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <iframe class="mt-2" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMiMobileDZ&tabs&width=340&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+                </iframe>
+                </div>
+                <!--puplicity -->
+                <div>
+                  {% for obj in ads_list %}
+                          <a href="#">
+                              <p>{{ obj.ads_3 }}</p>
+                          </a>
+                            {% endfor %}
+                </div>               
+            	</div>
+            </div>
+
+{% endblock %}
+

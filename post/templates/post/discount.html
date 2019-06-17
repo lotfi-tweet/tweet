@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+ {% block content %}
+
+            <!-- topic -->
+            <div class="row">
+            	<div class="col-sm-8 p-1 mt-3" >
+                 <div class="row">
+                 {% for post in disc_list %}
+                    <div class="col-sm-4 ">
+                              <div class="card mb-3 border border-danger" >
+                                  <img src="{{ post.imag_dics.url }}" class="img-disc-b" alt="sam"/>
+                                  <div class="card-body p-3">
+                                    <h1 class="e-c disc-h">{{ post.mob_name }}</h1>
+                                    <h5 class="e-c cl-red"><strike>{{ post.old_price }} دج</strike></h5>
+                                    <h5 class="e-c cl-green">{{ post.new_price }} دج</h5>
+
+                                  </div>
+                               </div>
+                    </div>
+                 {% endfor %}
+                 </div>
+                 <!-- paginator -->
+                    <div class="row">
+						<div class="pagination">
+							<span class="step-links">
+								{% if disc_list.has_previous %}
+									<a href="?page=1" class="mr-3">&laquo; الأولى</a>
+									<a href="?page={{ disc_list.previous_page_number }}" class="mr-3">السابقة</a>
+								{% endif %}
+
+								<span class="current mr-3">
+									 {{ disc_list.number }} من {{ disc_list.paginator.num_pages }}
+								</span>
+
+								{% if disc_list.has_next %}
+									<a href="?page={{ disc_list.next_page_number }}" class="mr-3">التالية</a>
+									<a href="?page={{ disc_list.paginator.num_pages }}" class="mr-3">الأخيرة &raquo;</a>
+								{% endif %}
+							</span>
+						</div>
+                     </div>
+            	</div>
+
+            	<div class="col-sm-4">
+                 <div>{{ object.writer.ads_p3 }}</div>
+                  <p class="foot-title"><i class="far fa-clock"> </i>  أخر المواضيع </p>
+                    {% for post in latest_post %}
+                    <a href="{% url 'detail' post.pk %}" class="a-b">
+            		<div class="row foot-title-line">
+            			<div class="col-sm ">
+            				<div class="row no-gutters">
+							    <div class="col-md-5 ">
+							      <img src="{{ post.img_1.url}}" class="img-fluid4 " alt="sam">
+							    </div>
+							    <div class="col-md-7 ">
+							      <div class="card-body">
+							        <h6 class="card-title">{{ post.title|truncatewords:20 }}</h6>
+
+							        <p class="card-text mr-2"><small class="text-muted"> تاريخ النشر:{{ post.pup_date|date:"SHORT_DATE_FORMAT" }}</small></p>
+							      </div>
+							    </div>
+							 </div>
+            			</div>
+            		</div>
+                        </a>
+                    {% endfor %}
+
+                    <p class="foot-title "><i class="far fa-eye ml-2"> </i>الأكثر مشاهدة </p>
+                    {% for post in puplic_list %}
+					<a href="{% url 'detail' post.pk %}" class="a-b">
+            		<div class="row foot-title-line">
+            			<div class="col-sm ">
+            				<div class="row no-gutters">
+							    <div class="col-md-5 ">
+							      <img src="{{ post.img_1.url}}" class="img-fluid4" alt="sam">
+							    </div>
+							    <div class="col-md-7 ">
+							      <div class="card-body">
+							        <h6 class="card-title">{{ post.title|truncatewords:20 }}</h6>
+
+							        <p class="card-text mr-2"><small class="text-muted"> تاريخ النشر:{{ post.pup_date|date:"SHORT_DATE_FORMAT" }}</small></p>
+							      </div>
+							    </div>
+							 </div>
+            			</div>
+            		</div>
+					</a>
+                     {% endfor %}
+					<div class="row">
+            			<div class="col-sm">
+            				<div class="row">
+			                  <iframe class=" image-fluid " src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMiMobileDZ&tabs&width=300&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="400" height="240"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+			                  </iframe>
+			                </div>
+            			</div>
+            		</div>
+              </div>
+
+            </div>
+
+
+
+
+
+{% endblock %}

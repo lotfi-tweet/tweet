@@ -1,0 +1,162 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+	<head>
+        {% load staticfiles %}
+	    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% if object.title %}
+        <title> تويت ديزاد |{{ object.title }} </title>
+      {% endif %}
+        <meta name="description" content="{{ object.text_1|truncatewords:40}}">
+        <meta name="keywords" content=" أسعار و مواصفات الهاتف ,عروض ,جيزي,موبيليس,أوريدو,أخبار,huawei,samsung,condor,oppo,xiaomi,apple,nokia,هاتف,كمبيوتر|{{ object.title }}">
+
+	    <!-- Bootstrap CSS -->
+	    
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+        <link href="https://fonts.googleapis.com/css?family=Scheherazade" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+	    <title>{{ object.title }}</title>
+	</head>
+  <body>
+		<div class="container"> 
+		    <!-- navbar-->
+		    <header>
+		          <div class="row">
+                        <div class="col-sm-3 col-md-3 uplogo" >
+                          <a href="{% url 'post' %}">
+                            <img class="logo img-responsive image-resize align-self-left" src="{% static 'img/logo.jpg'%}"/>
+                          </a>  
+                        </div>
+                        <div class="col-sm-9 col-md-9 uppub">
+                          {% if obj.ads_1 %}
+                            {% for obj in ads_list %}
+                            
+                          <a href="#">
+                              <p>{{ obj.ads_1 }}</p>
+                          </a>
+                            
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                      </div>
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-h mb-1">
+                       <div class="container">
+                            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                               <span class="navbar-toggler-icon"></span>
+                               
+                            </button>
+                            <a href="{% url 'post' %}" class="navbar-brand hidden-lg hidden-md hiden-sm">
+                                <img class=" logoplay" src="{% static 'img/logo.jpg'%}">
+                            </a>
+                            <div class="collapse navbar-collapse row" id="navbarNavAltMarkup">
+
+                                <div class="navbar-nav text-right text-responsive">
+                                    
+                                        <a class="navbar-brand active ml-2" href="{% url 'post' %}"><i class="fas fa-home"></i></a>
+                                        <a class="navbar-brand" href="{% url 'mobile_part' %}"><i class="fas fa-mobile-alt"></i> هاتف</a>
+                                        <a class="navbar-brand" href="{% url 'offer_part' %}"><i class="fas fa-signal"></i> عروض </a>
+                                        <a class="navbar-brand" href="{% url 'computer_part' %}"><i class="fas fa-laptop"></i> كمبيوتر</a>
+                                        <a class="navbar-brand" href="{% url 'mix_part' %}"><i class="fas fa-box-open"></i> منوعات </a>
+                                        <a class="navbar-brand" href="{% url 'about_as' %}"><i class="fas fa-phone-volume"></i>  اتصل بنا </a>
+                                   
+                                   
+                                         <div class="rech"><gcse:search></gcse:search></div>
+                                         <div class="footer soc-icon-sm">
+	                                         <a class="foot-a" href="https://www.facebook.com/MiMobileDZ/" target="_blank"><i class="fab fa-facebook-square" ></i></a>
+				                            <a class="foot-a" href="https://twitter.com/TweetAlgerie" target="_blank"><i class="fab fa-twitter-square"></i></a>
+				                            <a class="foot-a" href="https://www.youtube.com/channel/UCOZlcqbbWqNOeivaUND6XMw" target="_blank"><i class="fab fa-youtube-square"></i></a>
+				                            <a class="foot-a" href="#"><i class="fas fa-rss"></i></a>
+                                        </div>
+                            </div>
+                        </div>
+                       </div>
+                    </nav>
+		    </header>
+            
+            {% block content %}
+            {% endblock %}
+            <!--footer-->
+            <div class="row ">
+                   <dir class="col-sm">
+                         <div class="footer ">
+                               <p class="foot-title">أقسام الموقع</p>
+                         </div>
+                   </dir>
+             </div> 
+
+
+             <div class="row ">
+                   <dir class="col-sm">
+                         <div class="footer">
+                               <ul>
+                                     <li class="foot-part"><a class="foot-a" href="{% url 'mobile_part' %}"> الهواتف النقالة </a></li>
+                                     <li class="foot-part"><a class="foot-a" href="{% url 'offer_part' %}"> عروض الهواتف النقالة </a></li>
+                                     <li class="foot-part"><a class="foot-a" href="{% url 'mix_part' %}"> أخبار متنوعة </a></li>
+                               </ul>
+                         </div>
+                   </dir>
+                   <dir class="col-sm">
+                         <div class="footer">
+                               <ul>
+                                     <li class="foot-part"><a class="foot-a" href="{% url 'computer_part' %}"> التكنولوجيا </a></li>
+                                     <li class="foot-part"><a class="foot-a" href="{% url 'discount_mob' %}"> تخفيضات </a></li>
+                                     <li class="foot-part"><a class="foot-a" href="{% url 'about_as' %}"> من نحن </a></li>
+                               </ul>
+                         </div>
+                   </dir>
+                  </div>
+                <div class="row">
+                   <dir class="col-sm">
+                        <div class="footer soc-icon">
+                        	<small>تابعنا على  :</small>
+                            <a class="foot-a" href="https://www.facebook.com/MiMobileDZ/" target="_blank"><i class="fab fa-facebook-square" ></i></a>
+                            <a class="foot-a" href="https://twitter.com/TweetAlgerie" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                            <a class="foot-a" href="https://www.youtube.com/channel/UCOZlcqbbWqNOeivaUND6XMw" target="_blank"><i class="fab fa-youtube-square"></i></a>
+                            <a class="foot-a" href="#"><i class="fas fa-rss"></i></a>
+                         </div>
+                    </dir>
+             </div>
+
+             <div  class="row designer">
+             	<div class="col-sm-6">
+             		   <i>  Tweet-dz &copy;
+                           <script type="text/javascript">
+                              document.write(new Date().getFullYear());
+                            </script> </i>
+                    كل الحقوق محفوضة
+             	</div>
+             	<div class="col-sm-6 ">
+             		   <i> Made-by-Lotfi.B </i>
+             	</div>
+             </div>
+        </div>
+        <!-- Optional JavaScript -->
+		<script>
+		  (function() {
+		    var cx = '002735541572303779408:xgfbqw28zve';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+
+
+
+		    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script async defer src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2"></script>
+            
+  </body>
+</html>
+
+
