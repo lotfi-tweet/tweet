@@ -9,7 +9,9 @@
 							{% for post in offer_list|slice:"0:1" %}
 							<a href="{% url 'detail' post.pk %}" class="a-w">
                             <div class="col-sm dzpost">
+								{% if post.img_1 %}
 	            				<img src="{{ post.img_1.url}}" class="img-topic" alt="Responsive image">
+								{% endif %}
 	            				<div class="post_in">
 
 	            					<h1>{{ post.title}}</h1>
@@ -40,7 +42,9 @@
 						<a href="{% url 'detail' post.pk %}" class="a-b">
 					  <div class="row no-gutters  ">
 					    <div class="col-md-4">
+							{% if post.img_1 %}
 					      <img src="{{ post.img_1.url}}" class="img-fluid3" alt="sam">
+							{% endif %}
 					    </div>
 					    <div class="col-md-8 pr-2">
 
@@ -92,7 +96,9 @@
             			<div class="col-sm ">
             				<div class="row no-gutters">
 							    <div class="col-md-5 ">
+									{% if post.img_1 %}
 							      <img src="{{ post.img_1.url}}" class="img-fluid4 " alt="sam">
+									{% endif %}
 							    </div>
 							    <div class="col-md-7 ">
 							      <div class="card-body">
@@ -114,7 +120,9 @@
             			<div class="col-sm ">
             				<div class="row no-gutters">
 							    <div class="col-md-5 ">
+									{% if post.img_1 %}
 							      <img src="{{ post.img_1.url}}" class="img-fluid4" alt="sam">
+									{% endif %}
 							    </div>
 							    <div class="col-md-7 ">
 							      <div class="card-body">
@@ -154,7 +162,9 @@
                 {% for post in discount_list %}
             	<div class="col-sm-3">
             		<div class="card mb-3">
+						{% if post.imag_dics %}
 					  <img src="{{ post.imag_dics.url}}" class="img-disc" alt="sam"/>
+						{% endif %}
 					  <div class="card-body">
 					     <h1 class="e-c">{{ post.mob_name }}</h1>
 						 <h5 class="e-c cl-red"><strike>{{ post.old_price }} دج</strike></h5>

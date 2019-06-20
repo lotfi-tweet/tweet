@@ -8,7 +8,9 @@
                  {% for post in disc_list %}
                     <div class="col-sm-4 ">
                               <div class="card mb-3 border border-danger" >
+								  {% if post.imag_dics %}
                                   <img src="{{ post.imag_dics.url }}" class="img-disc-b" alt="sam"/>
+								  {% endif %}
                                   <div class="card-body p-3">
                                     <h1 class="e-c disc-h">{{ post.mob_name }}</h1>
                                     <h5 class="e-c cl-red"><strike>{{ post.old_price }} دج</strike></h5>
@@ -50,7 +52,9 @@
             			<div class="col-sm ">
             				<div class="row no-gutters">
 							    <div class="col-md-5 ">
+									{% if post.img_1 %}
 							      <img src="{{ post.img_1.url}}" class="img-fluid4 " alt="sam">
+									{% endif %}
 							    </div>
 							    <div class="col-md-7 ">
 							      <div class="card-body">
@@ -72,7 +76,9 @@
             			<div class="col-sm ">
             				<div class="row no-gutters">
 							    <div class="col-md-5 ">
+									{% if post.img_1 %}
 							      <img src="{{ post.img_1.url}}" class="img-fluid4" alt="sam">
+									{% endif %}
 							    </div>
 							    <div class="col-md-7 ">
 							      <div class="card-body">

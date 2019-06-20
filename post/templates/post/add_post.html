@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<h1 class="bg-success text-warning text-center m-3 p-3 "> إضافة منشور أو مقال  </h1>
+<br>
+<div class="p-4 m-4">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-primary m-2">نشر</button>
+</form>
+</div>
+{%endblock%}

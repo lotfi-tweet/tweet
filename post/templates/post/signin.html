@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+ {% block content %}
+
+
+
+<h1 class="bg-success text-warning text-center m-3 p-3 "> صفحة الدخول </h1>
+
+   <br />
+<div class="mr-4">
+        <h5 class="main-color mr-4">
+            {% if error %}
+            {{ error }}
+            {% endif %}
+        </h5>
+</div>
+ <br />
+ <br />
+<div class="row">
+    <div class="col-2 col-md-2 col-sm"></div>
+    <div class="col-8 col-md-8 col-sm">
+<form method="POST" action="{% url 'signin' %}">
+       {% csrf_token %}
+      <h6> إسم المستخدم:</h6>
+       <input type="text" name="Username" class="form-control"/>
+        <br />
+      <h6> الرمز السري:</h6>
+       <input type="password" name="password" class="form-control"/>
+        <br />
+       <input type="submit" value="دخول " class="btn btn-info" />
+        <br />
+   </form>
+
+    </div>
+    <div class="col-2 col-md-2 col-sm"></div>
+</div>
+{% endblock %}

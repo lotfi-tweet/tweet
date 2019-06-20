@@ -27,7 +27,6 @@ sitemaps = {
 
 urlpatterns = [
     path('', include('post.urls')),
-    path('grappelli/', include('grappelli.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),

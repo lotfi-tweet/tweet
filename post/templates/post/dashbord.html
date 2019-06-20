@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+ {% block content %}
+<br>
+
+<h1 class="bg-success text-warning text-center m-3 p-3 "> لوحة التحكم Dashbaord </h1>
+
+<div class="row m-2">
+    <dir class="col-lg-3 col-md-3 col-sm">
+        <li class="foot-part text-center m-3 p-3"><a class="foot-a text-center" href="{% url 'add-post' %}"> <h6><i class="fas fa-pencil-alt"></i> أضافة مقال : <i class="fas fa-plus-circle"></i> </h6> </a></li>
+    </dir>
+    <dir class="col-lg-3 col-md-3 col-sm">
+        <li class="foot-part text-center m-3 p-3 "><a class="foot-a text-center" href="{% url 'discount_mob' %}"> <h6><i class="fas fa-angle-double-down"></i> أضافة تخفيض : <i class="fas fa-plus-circle"></i> </h6>  </a></li>
+    </dir>
+    <dir class="col-lg-3 col-md-3 col-sm">
+         <li class="foot-part text-center m-3 p-3"><a class="foot-a text-center" href="{% url 'about_as' %}"> <h6><i class="fas fa-mobile-alt ml-3"></i>   أضافة هاتف :  <i class="fas fa-plus-circle"></i></h6> </a></li>
+    </dir>
+    <dir class="col-lg-3 col-md-3 col-sm">
+         <li class="foot-part text-center m-3 p-3"><a class="foot-a text-center" href="{% url 'computer_part' %}"> <h6><i class="fas fa-signal"></i>    عرض اتصالات :  <i class="fas fa-plus-circle"></i></h6> </a></li>
+    </dir>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm ">
+        <h1 class="bg-info main-color text-center p-3 "> المنشورات <i class="fas fa-pencil-alt mr-2"></i></h1>
+
+
+                {% for post in posts %}
+            <div class="row border">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                       <p class="main-color ">{{ post.title }}</p>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">تعديل</a></div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">حذف</a></div>
+            </div>
+                {% endfor %}
+
+
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm ">
+
+        <!-- mobiles Discounts and Offers -->
+        <h1 class="bg-info main-color text-center p-3 "> التخفيضات <i class="fas fa-angle-double-down mr-2"></i></h1>
+
+
+                {% for disc in discounts %}
+            <div class="row border">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                       <h6 class="main-color ">{{ disc.mob_name }}</h6>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">تعديل</a></div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">حذف</a></div>
+            </div>
+                {% endfor %}
+<br><br>
+        <!-- Sim Companies offers -->
+         <h5 class="bg-info main-color text-center p-3 "> عروض النقال<i class="fas fa-signal mr-2"></i> </h5>
+<br><br><br><br>
+         <!-- يجب ازالتها
+                {% for disc in discounts %}
+            <div class="row border">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                       <h6 class="main-color ">{{ disc.mob_name }}</h6>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">تعديل</a></div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">حذف</a></div>
+            </div>
+                {% endfor %}
+        -->
+          <!-- Sim Companies offers -->
+         <h5 class="bg-info main-color text-center p-3 "> خصائص الهواتف <i class="fas fa-mobile-alt mr-2"></i></h5>
+<br><br><br><br><br>
+         <!-- يجب ازالتها
+                {% for disc in discounts %}
+            <div class="row border">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                       <h6 class="main-color ">{{ disc.mob_name }}</h6>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">تعديل</a></div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 ">
+                      <a class="" href="#">حذف</a></div>
+            </div>
+                {% endfor %}
+                -->
+    </div>
+
+</div>
+
+
+
+
+
+
+                <!--    <a class="btn btn-success" href="#"><h2> أضافة مقال : <i class="fas fa-plus-circle"></i> </h2> </a> -->
+
+
+
+
+
+{% endblock %}
+

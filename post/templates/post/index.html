@@ -7,7 +7,9 @@
                       {% for post in mobile_list|slice:"0:2"  %}
             			<div class="col-sm dzpost2">
             				<a href="{% url 'detail' post.pk %}" >
+                                {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                {% endif %}
                                 </a>
             				<div class="post_in">
                               <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -26,7 +28,9 @@
             			<div class="col-sm-4">
                             <div class="col-sm dzpost2">
             				  <a href="{% url 'detail' post.pk %}" >
+                                  {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                  {% endif %}
                                 </a>
             				  <div class="post_in">
                                 <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -44,7 +48,9 @@
             			<div class="col-sm-4">
                             <div class="col-sm dzpost2">
                                <a href="{% url 'detail' post.pk %}" >
+                                   {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                   {% endif %}
                                 </a>
             				  <div class="post_in">
                                 <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -61,7 +67,9 @@
             			<div class="col-sm-4">
                             <div class="col-sm dzpost2">
             				  <a href="{% url 'detail' post.pk %}" >
+                                  {% if post.img_1 %}
             				    <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                  {% endif %}
                               </a>
             				  <div class="post_in">
                                 <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -100,7 +108,9 @@
                     <div class="row no-gutters">
                       <div class="col-md-4 ">
                         <a href="{% url 'detail' post.pk %}" >
+                            {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid3" alt="Responsive image">
+                            {% endif %}
                         </a>
                       </div>
                       <div class="col-md-8">
@@ -128,7 +138,9 @@
                       </div>
                   {% for post in discount_list %}
                 <div class="card mb-3 border border-danger " >
+                    {% if post.imag_dics %}
                     <img src="{{ post.imag_dics.url }}" class="img-disc pt-2" alt="sam"/>
+                    {% endif %}
                     <div class="card-body">
                       <h1 class="e-c">{{ post.mob_name }}</h1>
                       <h5 class="e-c cl-red"><strike>{{ post.old_price }} دج</strike></h5>
@@ -203,7 +215,9 @@
                         {% for post in offer_list|slice:"0:2" %}
             			<div class="col-sm dzpost2">
             				<a href="{% url 'detail' post.pk %}" >
+                                {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                {% endif %}
                             </a>
             				<div class="post_in">
                               <a href="{% url 'detail' post.pk %} " class="a-w">
@@ -217,7 +231,9 @@
             			{% for post in offer_list|slice:"2:4" %}
             			<div class="col-sm dzpost2">
             				<a href="{% url 'detail' post.pk %}" >
+                                {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                {% endif %}
                             </a>
             				<div class="post_in">
                               <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -278,7 +294,9 @@
             			{% for post in computer_list|slice:"0:2" %}
             			<div class="col-sm dzpost2">
             				<a href="{% url 'detail' post.pk %}" >
+                                {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                {% endif %}
                             </a>
             				<div class="post_in">
                               <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -292,7 +310,9 @@
             			{% for post in computer_list|slice:"2:4" %}
             			<div class="col-sm dzpost2">
             				<a href="{% url 'detail' post.pk %}" >
+                                {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                {% endif %}
                             </a>
             				<div class="post_in">
                               <a href="{% url 'detail' post.pk %}" class="a-w">
@@ -320,7 +340,9 @@
 
                           <div class="col-md-4">
                             <a href="{% url 'detail' post.pk %}" >
+                                {% if post.img_1 %}
             				  <img src="{{ post.img_1.url}}" class="img-fluid" alt="Responsive image">
+                                {% endif %}
                             </a>
                           </div>
                           <div class="col-md-8 big-title-line">

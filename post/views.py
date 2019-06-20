@@ -1,7 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Category, About, AdsPublic, Discount
 from  django.core.paginator import Paginator
-
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from .forms import PostForm
+from django.contrib import auth
 
 def index(request):
     context = {
@@ -117,3 +120,36 @@ def discount_mob(request):
     }
 
     return render(request, 'post/discount.html', context)
+
+@login_required
+def dash_bord(request):
+    if request.user.is_authenticated:
+        context = {
+            'posts': Post.objects.order_by('-id')[:10],
+            'discounts': Discount.objects.order_by('-id')[:5],
+         }
+        return render(request, 'post/dashbord.html', context)
+    else:
+        return HttpResponse('<h3> الصفحة التي تريد الوصول اليها غير موجودة </h3>')
+
+@login_required
+def add_post(request):
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+           form.save()
+           return redirect('/dash-bord/')
+    form = PostForm()
+    return render(request, 'post/add_post.html', {'form': form})
+
+def signin(request):
+    if request.method == 'POST':
+       user = auth.authenticate(username=request.POST['Username'], password=request.POST['password'])
+       if user is not None:
+           auth.login(request, user)
+           return redirect('/dash-bord/')
+       else:
+           return render(request, 'post/signin.html', {'error': 'إسم المستخدم أو الرقم السري غير صحيح ... يرجي التأكد و المحاولة من جديد. '})
+    else:
+        return render(request, 'post/signin.html')
