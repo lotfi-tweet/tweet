@@ -9,7 +9,7 @@
         <li class="foot-part text-center m-3 p-3"><a class="foot-a text-center" href="{% url 'add-post' %}"> <h6><i class="fas fa-pencil-alt"></i> أضافة مقال : <i class="fas fa-plus-circle"></i> </h6> </a></li>
     </dir>
     <dir class="col-lg-3 col-md-3 col-sm">
-        <li class="foot-part text-center m-3 p-3 "><a class="foot-a text-center" href="{% url 'discount_mob' %}"> <h6><i class="fas fa-angle-double-down"></i> أضافة تخفيض : <i class="fas fa-plus-circle"></i> </h6>  </a></li>
+        <li class="foot-part text-center m-3 p-3 "><a class="foot-a text-center" href="{% url 'add-discount' %}"> <h6><i class="fas fa-angle-double-down"></i> أضافة تخفيض : <i class="fas fa-plus-circle"></i> </h6>  </a></li>
     </dir>
     <dir class="col-lg-3 col-md-3 col-sm">
          <li class="foot-part text-center m-3 p-3"><a class="foot-a text-center" href="{% url 'about_as' %}"> <h6><i class="fas fa-mobile-alt ml-3"></i>   أضافة هاتف :  <i class="fas fa-plus-circle"></i></h6> </a></li>
@@ -27,7 +27,7 @@
                 {% for post in posts %}
             <div class="row border">
                   <div class="col-lg-8 col-md-8 col-sm-8">
-                       <p class="main-color ">{{ post.title }}</p>
+                       <a href="{% url 'detail' post.id %}"><p class="main-color ">{{ post.title }}</p></a>
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 ">
                       <a class="" href="#">تعديل</a></div>
@@ -47,7 +47,7 @@
                 {% for disc in discounts %}
             <div class="row border">
                   <div class="col-lg-8 col-md-8 col-sm-8">
-                       <h6 class="main-color ">{{ disc.mob_name }}</h6>
+                       <a href="{% url 'discount_mob' %}"> <h6 class="main-color "> {{ disc.mob_name }}</h6></a>
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 ">
                       <a class="" href="#">تعديل</a></div>

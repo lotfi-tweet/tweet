@@ -71,8 +71,8 @@ h1, h2, h3, h4, h5, h6, p
 	width: 100%;
 }
 .img-topic{
-	height: 100%;
 	width: 100%;
+	height: 400px;
 }
 .img-fluid:hover{
     transition: .3s;
@@ -132,6 +132,7 @@ h1, h2, h3, h4, h5, h6, p
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #fff;
 	border-radius: 15px 15px 15px 15px;
+	margin-left:30px;
 }
 
 .foot-a{
@@ -257,12 +258,16 @@ input,button{
 	height:36px;
 }
 .rech {
-    margin-right: 29px;
+    margin-right: 10px;
     margin-left: 75px;
     width: 100%;
 }
    .uplogo{
 	display: none;
+}
+.img-topic{
+	width: 100%;
+	height: 300px;
 }
 }
 @media only screen and (min-width: 700px) {
@@ -305,10 +310,7 @@ input,button{
 	display: -webkit-box;
 }
 
-.img-topic{
-	width: 100%;
-	height: 400px;
-}
+
 
 .tex-direct{
 	text-align: justify;

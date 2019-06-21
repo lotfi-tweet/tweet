@@ -83,7 +83,6 @@ class Discount(models.Model):
     imag_dics = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     old_price = models.IntegerField(default=0)
     new_price = models.IntegerField(default=0)
-    dis_phone = models.TextField()
     date_pup  = models.TimeField(auto_now_add=True)
 
     def __str__(self):

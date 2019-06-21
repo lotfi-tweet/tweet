@@ -3,7 +3,7 @@ from .models import Post, Category, About, AdsPublic, Discount
 from  django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from .forms import PostForm
+from .forms import PostForm, DiscountForm
 from django.contrib import auth
 
 def index(request):
@@ -143,6 +143,20 @@ def add_post(request):
     form = PostForm()
     return render(request, 'post/add_post.html', {'form': form})
 
+
+@login_required
+def add_discount(request):
+
+    if request.method == 'POST':
+        form = DiscountForm(request.POST, request.FILES)
+        if form.is_valid():
+           form.save()
+           return redirect('/dash-bord/')
+    form = DiscountForm()
+    return render(request, 'post/add_discount.html', {'form': form})
+
+
+
 def signin(request):
     if request.method == 'POST':
        user = auth.authenticate(username=request.POST['Username'], password=request.POST['password'])
@@ -153,3 +167,8 @@ def signin(request):
            return render(request, 'post/signin.html', {'error': 'إسم المستخدم أو الرقم السري غير صحيح ... يرجي التأكد و المحاولة من جديد. '})
     else:
         return render(request, 'post/signin.html')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('/signin/')

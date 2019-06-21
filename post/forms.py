@@ -1,12 +1,13 @@
 from django import forms
-from .models import Post
+from .models import Post, Discount
 
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title',
+        fields = [
+                  'title',
                   'categorie',
                   'writer',
                   'text_1',
@@ -36,4 +37,22 @@ class PostForm(forms.ModelForm):
             'title_url1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'عنوان الرابط 1'}),
             'relate2_url': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'الرابط 2'}),
             'title_url2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'عنوان الرابط 2'}),
+        }
+
+
+class DiscountForm(forms.ModelForm):
+
+    class Meta:
+        model = Discount
+        fields = [
+                  'mob_name',
+                  'old_price',
+                  'new_price',
+                  'imag_dics',
+                  ]
+        widgets = {
+            'mob_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'إسم الهاتف '}),
+            'old_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'new_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'imag_dics': forms.FileInput(attrs={'class': 'form-control'}),
         }
